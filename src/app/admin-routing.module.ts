@@ -4,6 +4,7 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 
 const adminRouting: Routes = [
     {path: 'dashboard', component: DashboardComponent},
+    {path: 'user', loadChildren: 'app/components/user/user.module#UserModule'},
     {path: '', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 
