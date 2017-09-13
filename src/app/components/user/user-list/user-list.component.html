@@ -1,3 +1,16 @@
-<p>
-    user-list works!
-</p>
+<div *ngIf="userList">
+    <div *ngFor="let user of (userList | async)" class="well">
+        <div>
+            <label for="id">Id:</label>
+            <span id="id">{{user.id}}</span>
+        </div>
+        <div>
+            <label for="name">Name:</label>
+            <span id="name">{{user.forename}} {{user.surname}}</span>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <span id="email">{{user.email}}</span>
+        </div>
+    </div>
+</div>
