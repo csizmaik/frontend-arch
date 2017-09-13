@@ -1,13 +1,25 @@
 import {async, TestBed} from '@angular/core/testing';
 
 import {AppComponent} from './admin.component';
+import {RouterModule} from '@angular/router';
+import {AdminRoutingModule} from './admin-routing.module';
+import {DashboardModule} from './components/dashboard/dashboard.module';
+import {APP_BASE_HREF} from '@angular/common';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+        imports: [
+            RouterModule,
+            AdminRoutingModule,
+            DashboardModule
+        ],
+        declarations: [
+            AppComponent
+        ],
+        providers: [
+            {provide: APP_BASE_HREF, useValue: '/'}
+        ]
     }).compileComponents();
   }));
 
@@ -27,6 +39,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
+      expect(compiled.querySelector('h1').textContent).toContain('Welcome to Bizthu frontend arch test!');
   }));
 });
