@@ -4,7 +4,7 @@ import {Store} from '@ngrx/store';
 import {AdminState} from '../../store/admin.state';
 import {User} from './User';
 import {LoadUserAction} from '../../store/user/user.actions';
-import {selectUserList} from '../../store/user/user.selectors';
+import {selectLoadError, selectLoadInProgress, selectUserList} from '../../store/user/user.selectors';
 
 @Injectable()
 export class UserService {
@@ -18,5 +18,13 @@ export class UserService {
 
     selectUserList(): Observable<User[]> {
         return this.store.select(selectUserList);
+    }
+
+    selectLoadError(): Observable<boolean> {
+        return this.store.select(selectLoadError);
+    }
+
+    selectLoadInProgress(): Observable<boolean> {
+        return this.store.select(selectLoadInProgress);
     }
 }

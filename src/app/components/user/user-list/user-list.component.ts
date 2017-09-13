@@ -11,9 +11,13 @@ import {UserService} from '../../../services/user/user.service';
 })
 export class UserListComponent implements OnInit {
     public userList: Observable<User[]>;
+    public loadError: Observable<boolean>;
+    public loadInProgress: Observable<boolean>;
 
     constructor(private userService: UserService) {
         this.userList = this.userService.selectUserList();
+        this.loadError = this.userService.selectLoadError();
+        this.loadInProgress = this.userService.selectLoadInProgress();
     }
 
     ngOnInit() {

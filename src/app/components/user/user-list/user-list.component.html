@@ -1,3 +1,9 @@
+<div class="alert alert-info" *ngIf="loadInProgress | async">
+    Adatok betöltése folyamatban...
+</div>
+<div class="alert alert-danger" *ngIf="loadError | async">
+    Hiba történt az adatok letöltése során
+</div>
 <div *ngIf="userList">
     <div *ngFor="let user of (userList | async)" class="well">
         <div>

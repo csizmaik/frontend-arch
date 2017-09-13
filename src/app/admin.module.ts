@@ -8,6 +8,9 @@ import {AdminRoutingModule} from './admin-routing.module';
 import {DashboardModule} from './components/dashboard/dashboard.module';
 import {RouterModule} from '@angular/router';
 import {adminReducer} from './store/admin.reducer';
+import {UserEffects} from './services/user/user.effects';
+import {EffectsModule} from '@ngrx/effects';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import {adminReducer} from './store/admin.reducer';
       StoreDevtoolsModule.instrument({
           maxAge: 25
       }),
+      HttpModule,
+      EffectsModule.forRoot([UserEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
