@@ -1,22 +1,32 @@
-<div class="alert alert-info" *ngIf="loadInProgress | async">
-    Adatok betöltése folyamatban...
-</div>
-<div class="alert alert-danger" *ngIf="loadError | async">
-    Hiba történt az adatok letöltése során
-</div>
-<div *ngIf="userList">
-    <div *ngFor="let user of (userList | async)" class="well">
-        <div>
-            <label for="id">Id:</label>
-            <span id="id">{{user.id}}</span>
+<div class="row">
+    <div class="col-sm-7">
+        <div class="alert alert-info" *ngIf="loadInProgress | async">
+            Adatok betöltése folyamatban...
         </div>
-        <div>
-            <label for="name">Name:</label>
-            <span id="name">{{user.forename}} {{user.surname}}</span>
+        <div class="alert alert-danger" *ngIf="loadError | async">
+            Hiba történt az adatok letöltése során
         </div>
-        <div>
-            <label for="email">Email:</label>
-            <span id="email">{{user.email}}</span>
+        <div *ngIf="userList">
+            <div *ngFor="let user of (userList | async)" class="well">
+                <div>
+                    <label for="id">Id:</label>
+                    <span id="id">{{user.id}}</span>
+                </div>
+                <div>
+                    <label for="name">Name:</label>
+                    <span id="name">{{user.forename}} {{user.surname}}</span>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <span id="email">{{user.email}}</span>
+                </div>
+                <div>
+                    <button class="btn btn-primary" (click)="editUser(user.id)">Szerkesztés</button>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="col-sm-5">
+        <app-user-details></app-user-details>
     </div>
 </div>

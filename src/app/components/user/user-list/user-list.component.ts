@@ -23,4 +23,8 @@ export class UserListComponent implements OnInit {
     ngOnInit() {
         this.userService.listUsersAction();
     }
+
+    editUser(id: number) {
+        this.userService.editUser(id);
+    }
 }

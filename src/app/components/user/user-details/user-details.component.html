@@ -1,0 +1,14 @@
+<div class="panel panel-primary" *ngIf="user | async">
+    <div class="panel-heading">
+        User szerkesztése
+    </div>
+    <div class="panel-body">
+        <form [formGroup]="userForm">
+            <div class="form-group">
+                <label for="email">Email cím:</label>
+                <input formControlName="email" id="email" type="email" class="form-control">
+            </div>
+        </form>
+        <button class="btn btn-default" (click)="cancelUserEditing()">Mégsem</button>
+    </div>
+</div>

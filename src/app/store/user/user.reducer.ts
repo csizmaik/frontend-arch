@@ -23,6 +23,18 @@ export function reducer(state: fromUserState.UserState = fromUserState.initialUs
                 loadError: true
             };
         }
+        case fromUserActions.EDIT_USER: {
+            return {
+                ...state,
+                editedUserId: action.userId
+            };
+        }
+        case fromUserActions.CANCEL_EDIT_USER: {
+            return {
+                ...state,
+                editedUserId: null
+            };
+        }
         default:
             return state;
     }
